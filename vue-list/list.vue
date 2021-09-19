@@ -8,18 +8,9 @@
     </div>
   </div>
   <ul class="list-body">
-    <li class="list-item simple">
-      <a href="#">Item 1</a>
-    </li>
-    <li class="list-item simple">
-      <a href="#">Item 1</a>
-    </li>
-    <li class="list-item simple">
-      <a href="#">Item 1</a>
-    </li>
-    <li class="list-item simple">
-      <a href="#">Item 1</a>
-    </li>
+    <template v-for="item in items">
+      <slot v-bind:item="item" />
+    </template>
   </ul>
 </div>
 </template>
@@ -28,8 +19,12 @@
 
 export default {
   name: 'list',
+
+  props: {
+    items: {
+      type: Array,
+      default: () => ([])
+    }
+  }
 }
 </script>
-
-<style scoped>
-</style>
