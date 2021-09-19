@@ -1,1 +1,1 @@
-sass -w --no-source-map --style=compressed index.scss
+sass -w --no-source-map --style=compressed index.scss:index.css
