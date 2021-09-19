@@ -1,6 +1,6 @@
-﻿<template>
-  <li class="list-item simple" :key="item.id">
-    <a href="#">{{ item.title }}</a>
+﻿<template functional>
+  <li class="list-item simple" :key="props.item.id">
+    <a href="#">{{ props.item.title }}</a>
   </li>
 </template>
 

@@ -1,8 +1,8 @@
-﻿<template>
-  <li class="list-item detailed" :key="item.id">
+﻿<template functional>
+  <li class="list-item detailed" :key="props.item.id">
     <a href="#">
-      <span class="line1">{{ item.title }}</span>
-      <span class="line2">{{ item.genres.join(' / ') }}</span>
+      <span class="line1">{{ props.item.title }}</span>
+      <span class="line2">{{ props.item.genres.join(' / ') }}</span>
     </a>
   </li>
 </template>

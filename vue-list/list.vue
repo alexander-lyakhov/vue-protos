@@ -1,12 +1,13 @@
 ﻿<template>
 <div class="list">
-  <div class="list-title">Simple List</div>
-  <div class="list-nav">
-    <div class="list-nav__menu">
-      <span class="selected">Simple</span>
-      <span>Detailed</span>
-    </div>
+  <div class="list-title">
+    {{ title }}
   </div>
+
+  <div class="list-nav">
+    <slot name="nav" />
+  </div>
+
   <ul class="list-body">
     <template v-for="item in items">
       <slot v-bind:item="item" />
@@ -21,6 +22,10 @@ export default {
   name: 'list',
 
   props: {
+    title: {
+      type: String,
+      default: 'The List'
+    },
     items: {
       type: Array,
       default: () => ([])
