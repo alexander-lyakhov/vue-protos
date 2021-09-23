@@ -1,18 +1,16 @@
 ﻿export default [
   {
-    title: 'Simple',
-    type: 'simple',
-    selected: true
+    title: 'Simple view',
+    value: 'simple',
   },
   {
-    title: 'Detailed',
-    type: 'detailed',
-    selected: false
+    title: 'Detailed view',
+    value: 'detailed',
   },
+  /*
   {
-    title: 'Card',
-    type: 'card',
-    selected: false
+    title: 'Card view',
+    value: 'card',
   },
-
+  */
 ];

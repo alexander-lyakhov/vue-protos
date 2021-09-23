@@ -1,8 +1,8 @@
 ﻿<template>
   <div ref="list-nav" class="list-nav__menu">
     <span
-      v-for="(item, index) in items" :key="index"
-      :class="{selected: item.selected}"
+      v-for="(item, index) in options" :key="index"
+      :class="{selected: index === selectedIndex}"
       @click="toggleSelect(index)"
     >
       {{ item.title }}
@@ -11,35 +11,39 @@
 </template>
 
 <script>
-import listTypes from './list-types.js'
 
 export default {
   name: 'list-nav',
 
   props: {
-    value: {
+    item: {
       type: Object,
       default: () => ({})
+    },
+
+    options: {
+      type: Array,
+      default: () => ([])
     }
   },
 
   model: {
-    prop: 'value',
+    prop: 'item',
     event: 'type-change'
   },
 
   data: () => ({
-    items: listTypes
+    selectedIndex: 0
   }),
 
   mounted() {
-    const index = this.items.findIndex(el => el?.type === this.value?.type) || 0
+    const index = this.options.findIndex(el => el?.value === this.item?.value) || 0
     this.toggleSelect(index)
   },
 
   watch: {
-    value(newVal, oldVal) {
-      if (newVal.type !== oldVal.type) {
+    item(newVal, oldVal) {
+      if (newVal.value !== oldVal.value) {
         this.checkValue()
       }
     }
@@ -47,13 +51,13 @@ export default {
 
   methods: {
     checkValue() {
-      const index = this.items.findIndex(el => el?.type === this.value?.type) || 0
+      const index = this.options.findIndex(el => el?.value === this.item?.value) || 0
       this.toggleSelect(index)
     },
 
     toggleSelect(selectedIndex) {
-      this.items.forEach((el, index) => el.selected = index === selectedIndex)
-      this.$emit('type-change', this.items[selectedIndex])
+      this.selectedIndex = selectedIndex;
+      this.$emit('type-change', this.options[selectedIndex])
     }
   }
 }

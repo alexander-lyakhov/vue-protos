@@ -1,0 +1,55 @@
+﻿header {
+  // color: map.get($header, fc);
+  // background: map.get($header, bg);
+  color: map.get($fc, header);
+  background: map.get($bg, header);
+  border-bottom: 1px solid #686868;
+  width: 100%;
+  height: 80px;
+  position: fixed;
+  left: 0;
+  top: 0;
+
+  h1 {
+    font-size: 1.5rem;
+    font-weight: normal;
+    text-align: center;
+    width: 100%;
+    height: 64px;
+    line-height: 64px;
+
+    span {
+      color: $fc-accent;
+      padding: .5rem;
+    }
+  }
+
+  .steps {
+    background: darken(map.get($bg, header), 6%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 32px;
+
+    li {
+      color: #a0a0a0;
+      text-align: center;
+      line-height: 2rem;
+      margin: 0 1px;
+      padding: 0 1rem;
+      position: relative;
+      cursor: pointer;
+
+      &:not(:last-child):after {
+        content: '/';
+        color: #808080;
+        position: absolute;
+        right: -4px;
+      }
+
+      &.selected {
+        color: $fc-accent;
+      }
+    }
+  }
+}

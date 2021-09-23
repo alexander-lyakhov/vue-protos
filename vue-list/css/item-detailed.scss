@@ -10,6 +10,7 @@
     border: 2px solid transparent;
     display: block;
     padding: 0.25rem .5rem;
+    //transition: padding-left .25s;
 
     span {
       display: block;
@@ -18,6 +19,9 @@
       &.line1 {
         font-size: 1.25rem;
         text-transform: uppercase;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
       }
 
       &.line2 {
@@ -33,6 +37,10 @@
 
       color: map.get($fc, "list-item:hover");
       background: map.get($bg, "list-item:hover");
+
+      //background: lighten(map.get($bg, "list-item"), 6);
+      //border-left: 4px solid $fc-accent;
+      //padding-left: 1rem;
 
       .line2 {
         // color: map.get($list, item, secondary, hover, fc);

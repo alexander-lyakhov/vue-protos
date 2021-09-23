@@ -1,41 +1,31 @@
 ﻿<template>
-  <div>
-    <header>
-      <h1>
-        <span>Ex.1</span>
-        Scoped slots / functional components
-      </h1>
-    </header>
-    <main>
-      <list title="Simple list" :items="movies">
-        <template #default="{ item }">
-          <list-item-simple :item="item" />
-        </template>
-      </list>
+  <main>
+    <list title="Simple list" :items="movies">
+      <template #default="{ item }">
+        <list-item-simple :item="item" />
+      </template>
+    </list>
 
-      <list title="Detailed list" :items="movies">
-        <template #default="{ item }">
-          <list-item-detailed :item="item" />
-        </template>
-      </list>
-    </main>
-  </div>
+    <list title="Detailed list" :items="movies">
+      <template #default="{ item }">
+        <list-item-detailed :item="item" />
+      </template>
+    </list>
+  </main>
 </template>
 
 <script>
 
 import './css/index.css'
 import list from './list.vue'
-//import listNav from './list-nav.vue'
 import listItemSimple from './list-item-simple.vue'
 import listItemDetailed from './list-item-detailed.vue'
 
 export default {
-  name: 'app',
+  name: 'ex1',
 
   components: {
     list,
-    //listNav,
     listItemSimple,
     listItemDetailed
   },
