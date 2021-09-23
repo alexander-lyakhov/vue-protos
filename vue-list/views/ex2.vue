@@ -13,11 +13,10 @@
 
 <script>
 
-import './css/index.css'
-import list from './list.vue'
-import listNav from './list-nav.vue'
-import listItemSimple from './list-item-simple.vue'
-import listTypes from './list-types.js'
+import list from '../list.vue'
+import listNav from '../list-nav.vue'
+import listItemSimple from '../list-item-simple.vue'
+import { listTypes } from '../defs'
 
 export default {
   name: 'ex2',
@@ -26,8 +25,8 @@ export default {
     list,
     listNav,
     listItemSimple,
-    listItemDetailed: () => import('./list-item-detailed.vue'),
-    listItemCard: () => import('./list-item-card.vue')
+    listItemDetailed: () => import('../list-item-detailed.vue'),
+    listItemCard: () => import('../list-item-card.vue')
   },
 
   data() {

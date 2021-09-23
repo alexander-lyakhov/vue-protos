@@ -16,10 +16,9 @@
 
 <script>
 
-import './css/index.css'
-import list from './list.vue'
-import listItemSimple from './list-item-simple.vue'
-import listItemDetailed from './list-item-detailed.vue'
+import list from '../list.vue'
+import listItemSimple from '../list-item-simple.vue'
+import listItemDetailed from '../list-item-detailed.vue'
 
 export default {
   name: 'ex1',

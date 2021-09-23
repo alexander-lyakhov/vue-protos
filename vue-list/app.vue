@@ -2,38 +2,38 @@
   <div class="page">
     <header>
       <h1>
-        <span>Ex.3</span>
-        Renderless components / Dynamic components / Scoped slots / functional components
+        <span v-if="selectedPage.value !== 'home'">{{ selectedPage.title }} </span>
+        {{ selectedPage.description }}
       </h1>
-      <ul class="steps">
-        <li class="selected">Home</li>
-        <li>Ex.1</li>
-        <li>Ex.2</li>
-        <li>Ex.3</li>
-      </ul>
+      <header-nav v-model="selectedPage" :options="pages" />
     </header>
-
-    <components :is="name" />
+    <keep-alive>
+      <components :is="selectedPage.value" />
+    </keep-alive>
   </div>
 </template>
 
 <script>
 
-// import ex1 from './ex1.vue'
-
-import './css/index.css'
+import './styles/index.css'
+import { pages } from './defs'
+import headerNav from './header-nav'
+import home from './views/home.vue'
 
 export default {
   name: 'app',
 
   components: {
-    ex1: () => import('./ex1.vue'),
-    ex2: () => import('./ex2.vue'),
-    ex3: () => import('./ex3.vue'),
+    headerNav,
+    home,
+    ex1: () => import('./views/ex1.vue'),
+    ex2: () => import('./views/ex2.vue'),
+    ex3: () => import('./views/ex3.vue'),
   },
 
   data: () => ({
-    name: 'ex3'
+    pages: pages,
+    selectedPage: pages[2]
   })
 }
 </script>
