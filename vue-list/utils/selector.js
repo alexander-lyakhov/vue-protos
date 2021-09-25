@@ -1,5 +1,5 @@
 ﻿export default {
-  name: 'nav-core',
+  name: 'selector',
 
   props: {
     value: {

@@ -1,5 +1,5 @@
 ﻿<template>
-  <nav-core
+  <selector
     v-bind="$attrs"
     v-on="$listeners"
     v-slot="slotData"
@@ -13,17 +13,17 @@
         {{ item.title }}
       </span>
     </div>
-  </nav-core>
+  </selector>
 </template>
 
 <script>
-import navCore from './utils/nav-core.js'
+import selector from './utils/selector.js'
 
 export default {
   name: 'list-nav',
 
   components: {
-    navCore
+    selector
   },
 }
 </script>
