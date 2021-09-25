@@ -1,7 +1,7 @@
 ﻿<template>
   <div class="home">
-    <ul>
-      <li>Slots (Scoped / Namded / Default)</li>
+    <ul class="feature-list">
+      <li>Slots: Scoped / Namded / Default</li>
       <li>Dynamic components</li>
       <li>Functional components</li>
       <li>Renderless components</li>

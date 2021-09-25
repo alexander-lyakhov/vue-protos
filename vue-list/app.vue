@@ -1,5 +1,5 @@
 ﻿<template>
-  <div class="page">
+  <div class="page" :class="[selectedPage.value]">
     <header>
       <h1>
         <span v-if="selectedPage.value !== 'home'">{{ selectedPage.title }} </span>
