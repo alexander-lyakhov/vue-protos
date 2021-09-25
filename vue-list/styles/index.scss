@@ -60,6 +60,33 @@ main {
   align-items: flex-start;
 }
 
+.home {
+  li {
+    font-size: 1.25rem;
+    color: $fc-secondary;
+    text-shadow: 1px 2px #00000080;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 0 .75rem;
+
+    /*
+    &:before {
+      content: '';
+      background: $fc-primary;
+      display: block;
+      width: 8px;
+      height: 8px;
+      position: absolute;
+      left: -8px;
+      top: 50%;
+      transform: translate(0, -50%) rotate(45deg);
+    }
+    */
+  }
+}
+
 .list {
   // color: map.get($list, fc);
   // background: map.get($list, bg);
