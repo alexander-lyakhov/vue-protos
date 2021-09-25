@@ -13,9 +13,9 @@
 
 <script>
 
-import list from '../list.vue'
-import listNav from '../list-nav.vue'
-import listItemSimple from '../list-item-simple.vue'
+import list from '../components/list.vue'
+import listNav from '../components/list-nav.vue'
+import listItemSimple from '../components/list-item-simple.vue'
 import { listTypes } from '../defs'
 
 export default {
@@ -25,8 +25,8 @@ export default {
     list,
     listNav,
     listItemSimple,
-    listItemDetailed: () => import('../list-item-detailed.vue'),
-    listItemCard: () => import('../list-item-card.vue')
+    listItemDetailed: () => import('../components/list-item-detailed.vue'),
+    listItemCard: () => import('../components/list-item-card.vue')
   },
 
   data() {

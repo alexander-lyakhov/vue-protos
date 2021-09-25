@@ -16,9 +16,9 @@
 
 <script>
 
-import list from '../list.vue'
-import listItemSimple from '../list-item-simple.vue'
-import listItemDetailed from '../list-item-detailed.vue'
+import list from '../components/list.vue'
+import listItemSimple from '../components/list-item-simple.vue'
+import listItemDetailed from '../components/list-item-detailed.vue'
 
 export default {
   name: 'ex1',

@@ -17,7 +17,7 @@
 
 import './styles/index.css'
 import { pages } from './defs'
-import headerNav from './header-nav'
+import headerNav from './components/header-nav'
 import home from './pages/home.vue'
 
 export default {
