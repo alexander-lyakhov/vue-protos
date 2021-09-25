@@ -18,7 +18,7 @@
 import './styles/index.css'
 import { pages } from './defs'
 import headerNav from './header-nav'
-import home from './views/home.vue'
+import home from './pages/home.vue'
 
 export default {
   name: 'app',
@@ -26,9 +26,9 @@ export default {
   components: {
     headerNav,
     home,
-    ex1: () => import('./views/ex1.vue'),
-    ex2: () => import('./views/ex2.vue'),
-    ex3: () => import('./views/ex3.vue'),
+    ex1: () => import('./pages/ex1.vue'),
+    ex2: () => import('./pages/ex2.vue'),
+    ex3: () => import('./pages/ex3.vue'),
   },
 
   data: () => ({
