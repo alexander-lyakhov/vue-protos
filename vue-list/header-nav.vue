@@ -4,7 +4,7 @@
     v-on="$listeners"
     v-slot="slotData"
   >
-    <ul class="steps">
+    <ul class="steps noselect">
       <li
         v-for="(item, index) in slotData.options" :key="index"
         :class="{selected: index === slotData.selectedIndex}"
