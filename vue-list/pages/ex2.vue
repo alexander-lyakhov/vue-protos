@@ -1,12 +1,14 @@
 ﻿<template>
   <main>
     <list :title="listTitle" :items="dataset.data">
-      <template #nav>
+      <template #list-header>
         <list-nav v-model="selectedListType" :options="listTypes" />
       </template>
+
       <template #default="{ item }">
         <components :is="`list-item-${selectedListType.value}`" :item="item" />
       </template>
+
       <template #list-footer>
         <list-paging v-model="pagingConfig" />
       </template>
@@ -48,7 +50,10 @@ export default {
   },
 
   mounted() {
-    this.$watch('pagingConfig', () => this.getData(), {deep: true, immediate: true})
+    this.$watch('pagingConfig', () => this.getData(), {
+      deep: true,
+      immediate: true
+    })
   },
 
   computed: {
@@ -63,10 +68,8 @@ export default {
 
   methods: {
     async getData() {
-      const res = await fetch(this.url).then(res => res.json())
-
-      this.dataset = res
-      this.pagingConfig.total = res.total
+      this.dataset = await fetch(this.url).then(res => res.json())
+      this.pagingConfig.total = this.dataset.total
 
       console.log(this.dataset)
     },

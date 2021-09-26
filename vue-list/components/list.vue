@@ -4,9 +4,7 @@
     {{ title }}
   </div>
 
-  <div class="list-nav">
-    <slot name="nav" />
-  </div>
+  <slot name="list-header" />
 
   <ul class="list-body">
     <template v-for="item in items">
@@ -14,8 +12,7 @@
     </template>
   </ul>
 
-  <slot name="list-footer">
-  </slot>
+  <slot name="list-footer" />
 </div>
 </template>
 
