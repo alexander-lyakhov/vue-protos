@@ -1,11 +1,14 @@
 ﻿<template>
   <main>
-    <list :title="listTitle" :items="items" @prev-page="prev" @next-page="next">
+    <list :title="listTitle" :items="dataset.data">
       <template #nav>
         <list-nav v-model="selectedListType" :options="listTypes" />
       </template>
       <template #default="{ item }">
         <components :is="`list-item-${selectedListType.value}`" :item="item" />
+      </template>
+      <template #list-footer>
+        <list-paging v-model="pagingConfig" />
       </template>
     </list>
   </main>
@@ -16,6 +19,7 @@
 import list from '../components/list.vue'
 import listNav from '../components/list-nav.vue'
 import listItemSimple from '../components/list-item-simple.vue'
+import listPaging from '../components/list-paging.vue'
 import { listTypes } from '../defs'
 
 export default {
@@ -26,49 +30,46 @@ export default {
     listNav,
     listItemSimple,
     listItemDetailed: () => import('../components/list-item-detailed.vue'),
-    listItemCard: () => import('../components/list-item-card.vue')
+    listItemCard: () => import('../components/list-item-card.vue'),
+    listPaging,
   },
 
   data() {
     return {
-      items: null,
+      dataset: {},
       listTypes,
       selectedListType: listTypes[0],
-      pageOffset: 0,
-      pageCapacity: 12,
+      pagingConfig: {
+        offset: 0,
+        size: 12,
+        total: 0
+      }
     }
   },
 
   mounted() {
-    this.$watch('pageOffset', () => this.getData(), {immediate: true})
+    this.$watch('pagingConfig', () => this.getData(), {deep: true, immediate: true})
   },
 
   computed: {
     listTitle() {
       return `${this.selectedListType.title || listTypes[0].title}`
     },
+
+    url() {
+      return `http://react-cdp-api.herokuapp.com/movies?search=&searchBy=title&sortBy=title&sortOrder=asc&offset=${this.pagingConfig.offset}&limit=${this.pagingConfig.size}`
+    }
   },
 
   methods: {
     async getData() {
-      const res = await fetch(`http://react-cdp-api.herokuapp.com/movies?search=&searchBy=title&sortBy=title&sortOrder=asc&offset=${this.pageOffset}&limit=${this.pageCapacity}`)
-      const { data } = await res.json()
+      const res = await fetch(this.url).then(res => res.json())
 
-      this.items = data
-      console.log(this.items)
+      this.dataset = res
+      this.pagingConfig.total = res.total
+
+      console.log(this.dataset)
     },
-
-    prev() {
-      console.log('page')
-      if (this.pageOffset >= this.pageCapacity) {
-        this.pageOffset -= this.pageCapacity
-      }
-    },
-
-    next() {
-      console.log('next')
-      this.pageOffset += this.pageCapacity
-    }
   },
 }
 </script>
