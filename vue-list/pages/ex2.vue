@@ -1,6 +1,6 @@
 ﻿<template>
   <main>
-    <list :title="listTitle" :items="items">
+    <list :title="listTitle" :items="items" @prev-page="prev" @next-page="next">
       <template #nav>
         <list-nav v-model="selectedListType" :options="listTypes" />
       </template>
@@ -34,21 +34,41 @@ export default {
       items: null,
       listTypes,
       selectedListType: listTypes[0],
+      pageOffset: 0,
+      pageCapacity: 12,
     }
   },
 
-  async mounted() {
-    const res = await fetch('http://react-cdp-api.herokuapp.com/movies?search=&searchBy=title&sortBy=title&sortOrder=asc&offset=0&limit=12')
-    const { data } = await res.json()
-
-    this.items = data
-    console.log(this.items)
+  mounted() {
+    this.$watch('pageOffset', () => this.getData(), {immediate: true})
   },
 
   computed: {
     listTitle() {
       return `${this.selectedListType.title || listTypes[0].title}`
     },
-  }
+  },
+
+  methods: {
+    async getData() {
+      const res = await fetch(`http://react-cdp-api.herokuapp.com/movies?search=&searchBy=title&sortBy=title&sortOrder=asc&offset=${this.pageOffset}&limit=${this.pageCapacity}`)
+      const { data } = await res.json()
+
+      this.items = data
+      console.log(this.items)
+    },
+
+    prev() {
+      console.log('page')
+      if (this.pageOffset >= this.pageCapacity) {
+        this.pageOffset -= this.pageCapacity
+      }
+    },
+
+    next() {
+      console.log('next')
+      this.pageOffset += this.pageCapacity
+    }
+  },
 }
 </script>

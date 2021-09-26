@@ -5,6 +5,7 @@
       <li>Dynamic components</li>
       <li>Functional components</li>
       <li>Renderless components</li>
+      <li>v-model with Components</li>
     </ul>
   </div>
 </template>

@@ -144,4 +144,18 @@ main {
   &-body {
     padding: .5rem;
   }
+
+  &-paging {
+    padding: 0 .5rem;
+
+    & > div {
+      color: $fc-secondary;
+      border-top: 1px solid #808080;
+      font-size: .75rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 2.5rem;
+    }
+  }
 }
