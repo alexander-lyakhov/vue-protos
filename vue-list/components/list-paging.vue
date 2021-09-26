@@ -1,8 +1,8 @@
 ﻿<template>
   <div class="list-paging">
     <div>
-      <a href="#" @click.prevent="prev">Prev</a>
-      <a href="#" @click.prevent="next">Next</a>
+      <a href="#" :class="{disabled: flags.BOF}" @click.prevent="prev">Prev</a>
+      <a href="#" :class="{disabled: flags.EOF}" @click.prevent="next">Next</a>
     </div>
   </div>
 </template>
@@ -24,23 +24,30 @@ export default {
     event: 'change'
   },
 
+  computed: {
+    flags() {
+      return {
+        BOF: this.value.offset === 0,
+        EOF: this.value.offset + this.value.size >= this.value.total
+      }
+    }
+  },
+
   methods: {
     prev() {
       const {offset, size, total} = this.value
 
-      if (offset >= size) {
-        this.$emit('change', {
-          offset: offset - size,
-          size,
-          total
-        })
-      }
+      !this.flags.BOF && this.$emit('change', {
+        offset: offset - size,
+        size,
+        total
+      })
     },
 
     next() {
       const {offset, size, total} = this.value
 
-      this.$emit('change', {
+      !this.flags.EOF && this.$emit('change', {
         offset: offset + size,
         size,
         total
