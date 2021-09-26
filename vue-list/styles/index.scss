@@ -111,15 +111,16 @@ main {
   }
 
   &-nav {
-    @extend .noselect;
-    font-size: .875rem;
-    // color: map.get($list, nav, fc);
-    color: map.get($fc, "list-nav");
-    line-height: 2.5rem;
     padding: 0 .5rem;
 
     &__menu {
+      @extend .noselect;
+      font-size: .875rem;
+      // color: map.get($list, nav, fc);
+      color: map.get($fc, "list-nav");
       border-bottom: 2px solid #808080;
+      line-height: 2.5rem;
+
       span {
         border-bottom: 2px solid trasparent;
         display: inline-block;
