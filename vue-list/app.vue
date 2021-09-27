@@ -33,7 +33,7 @@ export default {
 
   data: () => ({
     pages: pages,
-    selectedPage: pages[2]
+    selectedPage: pages[3]
   })
 }
 </script>

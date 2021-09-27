@@ -1,12 +1,17 @@
 ﻿<template>
   <main>
-    <fetch :url="url" v-slot="{result}">
+    <fetch :url="url" v-slot="{ result }">
       <list :title="listTitle" :items="result.data">
-        <template #nav>
+        <template #list-header>
           <list-nav v-model="selectedListType" :options="listTypes" />
         </template>
+
         <template #default="{ item }">
           <components :is="`list-item-${selectedListType.value}`" :item="item" />
+        </template>
+
+        <template #list-footer>
+          <list-paging v-model="pagingConfig" />
         </template>
       </list>
     </fetch>
@@ -19,6 +24,7 @@ import fetch from '../utils/fetch.js'
 import list from '../components/list.vue'
 import listNav from '../components/list-nav.vue'
 import listItemSimple from '../components/list-item-simple.vue'
+import listPaging from '../components/list-paging.vue'
 import { listTypes } from '../defs'
 
 export default {
@@ -29,6 +35,7 @@ export default {
     list,
     listNav,
     listItemSimple,
+    listPaging,
     listItemDetailed: () => import('../components/list-item-detailed.vue'),
     listItemCard: () => import('../components/list-item-card.vue')
   },
@@ -38,6 +45,11 @@ export default {
       items: null,
       listTypes,
       selectedListType: listTypes[0],
+      pagingConfig: {
+        offset: 0,
+        size: 12,
+        total: 0
+      }
     }
   },
 
@@ -47,7 +59,7 @@ export default {
     },
 
     url() {
-      return 'http://react-cdp-api.herokuapp.com/movies?search=&searchBy=title&sortBy=title&sortOrder=asc&offset=0&limit=12'
+      return `http://react-cdp-api.herokuapp.com/movies?search=&searchBy=title&sortBy=title&sortOrder=asc&offset=${this.pagingConfig.offset}&limit=${this.pagingConfig.size}`
     }
   }
 }

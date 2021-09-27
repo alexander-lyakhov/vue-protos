@@ -1,14 +1,22 @@
 ﻿<template>
   <main>
-    <list title="Simple list" :items="movies">
+    <list title="Simple list" :items="movies.data">
       <template #default="{ item }">
         <list-item-simple :item="item" />
       </template>
+
+      <template #list-footer>
+        <list-paging v-model="pagingConfig" />
+      </template>
     </list>
 
-    <list title="Detailed list" :items="movies">
+    <list title="Detailed list" :items="movies.data">
       <template #default="{ item }">
         <list-item-detailed :item="item" />
+      </template>
+
+      <template #list-footer>
+        <list-paging v-model="pagingConfig" />
       </template>
     </list>
   </main>
@@ -19,6 +27,7 @@
 import list from '../components/list.vue'
 import listItemSimple from '../components/list-item-simple.vue'
 import listItemDetailed from '../components/list-item-detailed.vue'
+import listPaging from '../components/list-paging.vue'
 
 export default {
   name: 'ex1',
@@ -26,21 +35,41 @@ export default {
   components: {
     list,
     listItemSimple,
-    listItemDetailed
+    listItemDetailed,
+    listPaging
   },
 
   data() {
     return {
-      movies: null
+      movies: {},
+      pagingConfig: {
+        offset: 0,
+        size: 12,
+        total: 0
+      }
     }
   },
 
-  async mounted() {
-    const res = await fetch('http://react-cdp-api.herokuapp.com/movies?search=&searchBy=title&sortBy=title&sortOrder=asc&offset=0&limit=12')
-    const { data } = await res.json()
+  mounted() {
+    this.$watch('pagingConfig', () => this.getData(), {
+      deep: true,
+      immediate: true
+    })
+  },
 
-    this.movies = data
-    console.log(this.movies)
-  }
+  computed: {
+    url() {
+      return `http://react-cdp-api.herokuapp.com/movies?search=&searchBy=title&sortBy=title&sortOrder=asc&offset=${this.pagingConfig.offset}&limit=${this.pagingConfig.size}`
+    }
+  },
+
+  methods: {
+    async getData() {
+      this.movies = await fetch(this.url).then(res => res.json())
+      this.pagingConfig.total = this.movies.total
+
+      console.log(this.movies)
+    },
+  },
 }
 </script>

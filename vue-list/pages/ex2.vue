@@ -1,6 +1,6 @@
 ﻿<template>
   <main>
-    <list :title="listTitle" :items="dataset.data">
+    <list :title="listTitle" :items="movies.data">
       <template #list-header>
         <list-nav v-model="selectedListType" :options="listTypes" />
       </template>
@@ -38,7 +38,7 @@ export default {
 
   data() {
     return {
-      dataset: {},
+      movies: {},
       listTypes,
       selectedListType: listTypes[0],
       pagingConfig: {
@@ -68,10 +68,10 @@ export default {
 
   methods: {
     async getData() {
-      this.dataset = await fetch(this.url).then(res => res.json())
-      this.pagingConfig.total = this.dataset.total
+      this.movies = await fetch(this.url).then(res => res.json())
+      this.pagingConfig.total = this.movies.total
 
-      console.log(this.dataset)
+      console.log(this.movies)
     },
   },
 }
