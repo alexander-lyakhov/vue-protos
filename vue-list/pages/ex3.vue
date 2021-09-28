@@ -48,7 +48,7 @@ export default {
       pagingConfig: {
         offset: 0,
         size: 12,
-        total: 0
+        total: 3000
       }
     }
   },
