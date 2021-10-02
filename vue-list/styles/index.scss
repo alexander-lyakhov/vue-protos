@@ -1,6 +1,7 @@
 ﻿@use "sass:map";
 @import "theme-simple/dark.scss";
 @import "header.scss";
+@import "list.scss";
 @import "item-simple.scss";
 @import "item-detailed.scss";
 @import "item-card.scss";
@@ -91,83 +92,17 @@ main {
   }
 }
 
-.list {
-  // color: map.get($list, fc);
-  // background: map.get($list, bg);
-  color: map.get($fc, list);
-  background: map.get($bg, list);
-  //flex: 512px 0 1;
-  width: 640px;
-  margin: 0 .75rem 2rem;
-
-  &-title {
-    font-size: 1.25rem;
-    // color: map.get($list, title, fc);
-    // background: map.get($list, title, bg);
-    color: map.get($fc, "list-title");
-    background: map.get($bg, "list-title");
-    line-height: 3rem;
-    padding: 0 .5rem;
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
   }
-
-  &-nav {
-    padding: 0 .5rem;
-
-    &__menu {
-      @extend .noselect;
-      font-size: .875rem;
-      // color: map.get($list, nav, fc);
-      color: map.get($fc, "list-nav");
-      border-bottom: 2px solid #808080;
-      line-height: 2.5rem;
-
-      span {
-        border-bottom: 2px solid trasparent;
-        display: inline-block;
-        margin: 0 1rem -2px 0;
-        cursor: pointer;
-
-        &.selected {
-          // color: map.get($list, nav, selected, fc);
-          color: map.get($fc, "list-nav-selected");
-          border-bottom: 2px solid $fc-primary;
-        }
-
-        /*
-        &:hover {
-          border-bottom: 2px solid $fc-primary;
-        }
-        */
-      }
-    }
+  50% {
+    transform: rotate(180deg);
   }
-
-  &-body {
-    padding: .5rem;
+  51% {
+    transform: rotate(180deg);
   }
-
-  &-paging {
-    padding: 0 .5rem;
-
-    & > div {
-      color: $fc-secondary;
-      border-top: 1px solid #808080;
-      font-size: .75rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      height: 2.5rem;
-
-      a {
-        &.disabled {
-          color: #808080;
-          cursor: default;
-        }
-
-        &:active:not(.disabled) {
-          color: $fc-primary;
-        }
-      }
-    }
+  100% {
+    transform: rotate(360deg);
   }
 }

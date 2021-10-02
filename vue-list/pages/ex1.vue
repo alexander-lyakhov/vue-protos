@@ -1,6 +1,6 @@
 ﻿<template>
   <main>
-    <list title="Simple list" :items="movies.data">
+    <list title="Simple list" :items="movies.data" :is-loading="isLoading">
       <template #default="{ item }">
         <list-item-simple :item="item" />
       </template>
@@ -10,7 +10,7 @@
       </template>
     </list>
 
-    <list title="Detailed list" :items="movies.data">
+    <list title="Detailed list" :items="movies.data" :is-loading="isLoading">
       <template #default="{ item }">
         <list-item-detailed :item="item" />
       </template>
@@ -42,6 +42,7 @@ export default {
   data() {
     return {
       movies: {},
+      isLoading: false,
       pagingConfig: {
         offset: 0,
         size: 12,
@@ -65,8 +66,10 @@ export default {
 
   methods: {
     async getData() {
+      this.isLoading = true
       this.movies = await fetch(this.url).then(res => res.json())
       this.pagingConfig.total = this.movies.total
+      this.isLoading = false
 
       console.log(this.movies)
     },

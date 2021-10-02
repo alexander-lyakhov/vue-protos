@@ -1,6 +1,6 @@
 ﻿<template>
   <main>
-    <list :title="listTitle" :items="movies.data">
+    <list :title="listTitle" :items="movies.data" :is-loading="isLoading">
       <template #list-header>
         <list-nav v-model="selectedListType" :options="listTypes" />
       </template>
@@ -41,6 +41,7 @@ export default {
       movies: {},
       listTypes,
       selectedListType: listTypes[0],
+      isLoading: false,
       pagingConfig: {
         offset: 0,
         size: 12,
@@ -68,8 +69,10 @@ export default {
 
   methods: {
     async getData() {
+      this.isLoading = true
       this.movies = await fetch(this.url).then(res => res.json())
       this.pagingConfig.total = this.movies.total
+      this.isLoading = false
 
       console.log(this.movies)
     },
