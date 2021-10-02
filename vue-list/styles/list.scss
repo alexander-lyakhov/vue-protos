@@ -21,9 +21,9 @@
 
   &.is-loading::after {
     content: '';
-    border-left: 3px solid #fff;
-    border-top: 3px solid #fff;
-    border-right: 3px solid #fff;
+    border-left: 3px solid $fc-primary;
+    border-top: 3px solid $fc-primary;
+    border-right: 3px solid $fc-primary;
     border-bottom: 3px solid transparent;
     border-radius: 50%;
     display: block;
