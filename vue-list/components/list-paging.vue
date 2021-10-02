@@ -2,6 +2,7 @@
   <div class="list-paging">
     <div>
       <a href="#" :class="{disabled: flags.BOF}" @click.prevent="prev">Prev</a>
+      <span>{{ progress }}</span>
       <a href="#" :class="{disabled: flags.EOF}" @click.prevent="next">Next</a>
     </div>
   </div>
@@ -30,6 +31,10 @@ export default {
         BOF: this.value.offset === 0,
         EOF: this.value.offset + this.value.size >= this.value.total
       }
+    },
+
+    progress() {
+      return `${this.value.offset / this.value.size + 1} / ${Math.ceil(this.value.total / this.value.size)}`
     }
   },
 
