@@ -20,7 +20,7 @@
 
 <script>
 
-import fetch from '../utils/fetch.js'
+import fetch from '../components/utils/fetch.js'
 import list from '../components/list.vue'
 import listNav from '../components/list-nav.vue'
 import listItemSimple from '../components/list-item-simple.vue'

@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import selector from '../utils/selector.js'
+import selector from '../components/utils/selector.js'
 
 export default {
   name: 'header-nav',

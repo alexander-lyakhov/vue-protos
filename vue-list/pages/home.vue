@@ -6,6 +6,7 @@
       <li>Functional components</li>
       <li>Renderless components</li>
       <li>v-model with Components</li>
+      <li>Async components</li>
     </ul>
   </div>
 </template>
