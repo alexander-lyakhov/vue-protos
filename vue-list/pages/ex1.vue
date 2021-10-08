@@ -1,6 +1,10 @@
 ﻿<template>
   <main>
-    <list title="Simple list" :items="movies.data" :is-loading="isLoading">
+    <list :items="movies.data" :is-loading="isLoading">
+      <template #list-title>
+        <div class="list-title">Simple list</div>
+      </template>
+
       <template #default="{ item }">
         <list-item-simple :item="item" />
       </template>
@@ -10,7 +14,11 @@
       </template>
     </list>
 
-    <list title="Detailed list" :items="movies.data" :is-loading="isLoading">
+    <list :items="movies.data" :is-loading="isLoading">
+      <template #list-title>
+        <div class="list-title">Detailed list</div>
+      </template>
+
       <template #default="{ item }">
         <list-item-detailed :item="item" />
       </template>

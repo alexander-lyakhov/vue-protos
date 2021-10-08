@@ -1,7 +1,11 @@
 ﻿<template>
   <main>
     <fetch :url="url" v-slot="{ result, isLoading }">
-      <list :title="listTitle" :items="result.data" :is-loading="isLoading">
+      <list :items="result.data" :is-loading="isLoading">
+        <template #list-title>
+          <div class="list-title">{{ listTitle }}</div>
+        </template>
+
         <template #list-header>
           <list-nav v-model="selectedListType" :options="listTypes" />
         </template>

@@ -1,8 +1,6 @@
 ﻿<template functional>
   <div class="list" :class="{'is-loading': props.isLoading}">
-    <div class="list-title">
-      {{ props.title }}
-    </div>
+    <slot name="list-title" />
 
     <slot name="list-header" />
 

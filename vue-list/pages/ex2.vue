@@ -1,6 +1,10 @@
 ﻿<template>
   <main>
-    <list :title="listTitle" :items="movies.data" :is-loading="isLoading">
+    <list :items="movies.data" :is-loading="isLoading">
+      <template #list-title>
+        <div class="list-title">{{ listTitle }}</div>
+      </template>
+
       <template #list-header>
         <list-nav v-model="selectedListType" :options="listTypes" />
       </template>
