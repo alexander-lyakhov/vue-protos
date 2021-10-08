@@ -1,5 +1,6 @@
 ﻿@use "sass:map";
-@import "theme-simple/dark.scss";
+@import "theme/fc6-simple.scss";
+
 @import "header.scss";
 @import "list.scss";
 @import "item-simple.scss";
@@ -36,10 +37,8 @@ html {
 
 body {
   font: 16px verdana;
-  // color: map.get($theme, body, fc);
-  // background: map.get($theme, body, bg);
-  color: map.get($fc, body);
-  background: map.get($bg, body);
+  color: map.get($body, fc);
+  background: map.get($body, bg);
   height: 100%;
   padding-top: 96px;
 }
@@ -75,20 +74,6 @@ main {
     align-items: center;
     position: relative;
     padding: 0 .75rem;
-
-    /*
-    &:before {
-      content: '';
-      background: $fc-primary;
-      display: block;
-      width: 8px;
-      height: 8px;
-      position: absolute;
-      left: -8px;
-      top: 50%;
-      transform: translate(0, -50%) rotate(45deg);
-    }
-    */
   }
 }
 

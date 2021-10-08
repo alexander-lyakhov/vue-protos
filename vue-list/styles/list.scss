@@ -1,8 +1,6 @@
 ﻿.list {
-  // color: map.get($list, fc);
-  // background: map.get($list, bg);
-  color: map.get($fc, list);
-  background: map.get($bg, list);
+  color: map.get($list, fc);
+  background: map.get($list, bg);
   //flex: 512px 0 1;
   width: 640px;
   margin: 0 .75rem 2rem;
@@ -39,10 +37,8 @@
 
   &-title {
     font-size: 1.25rem;
-    // color: map.get($list, title, fc);
-    // background: map.get($list, title, bg);
-    color: map.get($fc, "list-title");
-    background: map.get($bg, "list-title");
+    color: map.get($list-title, fc);
+    background: map.get($list-title, bg);
     line-height: 3rem;
     padding: 0 .5rem;
   }
@@ -53,9 +49,8 @@
     &__menu {
       @extend .noselect;
       font-size: .875rem;
-      // color: map.get($list, nav, fc);
-      color: map.get($fc, "list-nav");
-      border-bottom: 2px solid #808080;
+      color: map.get($list-nav, fc);
+      border-bottom: 2px solid $fc-middle;
       line-height: 2.5rem;
 
       span {
@@ -65,16 +60,9 @@
         cursor: pointer;
 
         &.selected {
-          // color: map.get($list, nav, selected, fc);
-          color: map.get($fc, "list-nav-selected");
+          color: map.get($list-nav-selected, fc);
           border-bottom: 2px solid $fc-primary;
         }
-
-        /*
-        &:hover {
-          border-bottom: 2px solid $fc-primary;
-        }
-        */
       }
     }
   }
@@ -89,7 +77,7 @@
 
     & > div {
       color: $fc-secondary;
-      border-top: 1px solid #808080;
+      border-top: 1px solid $fc-middle;
       font-size: .75rem;
       display: flex;
       justify-content: space-between;
@@ -98,7 +86,7 @@
 
       a {
         &.disabled {
-          color: #808080;
+          color: $fc-middle;
           cursor: default;
         }
 

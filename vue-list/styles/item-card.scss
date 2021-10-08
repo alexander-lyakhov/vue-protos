@@ -1,6 +1,6 @@
 ﻿.list-item.card {
   // background: map.get($list, item, bg);
-  background: map.get($bg, "list-item");
+  background: map.get($list-item, bg);
   display: flex;
   height: 240px;
 

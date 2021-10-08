@@ -1,6 +1,5 @@
 ﻿.list-item.detailed {
-  // background: map.get($list, item, bg);
-  background: map.get($bg, "list-item");
+  background: map.get($list-item, bg);
 
   &:not(last-child) {
     margin: 0 0 2px;
@@ -10,7 +9,6 @@
     border: 2px solid transparent;
     display: block;
     padding: 0.25rem .5rem;
-    //transition: padding-left .25s;
 
     span {
       display: block;
@@ -26,25 +24,20 @@
 
       &.line2 {
         font-size: .75rem;
-        // color: map.get($list, item, secondary, fc);
-        color: map.get($fc, "list-item-secondary");
+        color: map.get($list-item-secondary, fc);
       }
     }
 
     &:hover {
-      // color: map.get($list, item, hover, fc);
-      // background: map.get($list, item, hover, bg);
-
-      color: map.get($fc, "list-item:hover");
-      background: map.get($bg, "list-item:hover");
+      color: map.get($list-item-hover, fc);
+      background: map.get($list-item-hover, bg);
 
       //background: lighten(map.get($bg, "list-item"), 6);
       //border-left: 4px solid $fc-accent;
       //padding-left: 1rem;
 
       .line2 {
-        // color: map.get($list, item, secondary, hover, fc);
-        color: map.get($fc, "list-item-secondary:hover");
+        color: map.get($list-item-secondary-hover,fc);
       }
     }
   }
