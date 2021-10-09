@@ -22,12 +22,17 @@
     }
   }
 
-  nav {
+  .nav {
     background: darken(map.get($header, bg), 6%);
     display: flex;
     justify-content: center;
     height: 32px;
     position: relative;
+
+    &-themes {
+      position: absolute;
+      right: .5rem;
+    }
   }
 
   .steps {

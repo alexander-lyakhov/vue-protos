@@ -5,9 +5,9 @@
         <span v-if="selectedPage.value !== 'home'">{{ selectedPage.title }} </span>
         {{ selectedPage.description }}
       </h1>
-      <nav>
+      <nav class="nav">
         <header-nav v-model="selectedPage" :options="pages" />
-        <dropdown />
+        <dropdown class="nav-themes" :options="theme" />
       </nav>
     </header>
     <keep-alive>
@@ -38,7 +38,12 @@ export default {
 
   data: () => ({
     pages: pages,
-    selectedPage: pages[0]
+    selectedPage: pages[0],
+    theme: [
+      {title: 'FC6', val: 'fc6'},
+      {title: 'Dark', val: 'dark'},
+      {title: 'SD', val: 'sd'},
+    ]
   })
 }
 </script>

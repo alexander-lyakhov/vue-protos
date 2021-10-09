@@ -1,10 +1,10 @@
 ﻿<template>
   <div class="dropdown">
     <div class="dropdown-title noselect" @click="toggleList">
-      Theme
+      <div class="dropdown-toggle-button">A</div>
     </div>
     <div v-show="isListVisible">
-      <list :items="theme">
+      <list :items="options">
         <template #default="{ item }">
           <div class="dropdown-item">{{ item.title }}</div>
         </template>
@@ -24,14 +24,16 @@ export default {
     list
   },
 
+  props: {
+    options: {
+      type: Array,
+      default: () => ([])
+    }
+  },
+
   data() {
     return {
       isListVisible: true,
-      theme: [
-        {title: 'FC6', val: 'fc6'},
-        {title: 'Dark', val: 'dark'},
-        {title: 'SD', val: 'sd'},
-      ]
     }
   },
 

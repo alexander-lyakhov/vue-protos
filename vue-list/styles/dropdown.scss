@@ -1,15 +1,23 @@
 ﻿.dropdown {
-  background: #088;
+  //background: #088;
   width: 128px;
   padding: 0;
 
   &-title {
-    color: #000;
-    background: $fc-secondary;
+    display: flex;
+    justify-content: flex-end;
     height: 32px;
     line-height: 32px;
-    padding: 0 .5rem;
+    margin-bottom: 1px;
     cursor: pointer;
+  }
+
+  &-toggle-button {
+    color: #000;
+    background: $fc-secondary;
+    text-align: center;
+    width: 32px;
+    padding: 0 .5rem;
   }
 
   &-item {
