@@ -5,7 +5,10 @@
         <span v-if="selectedPage.value !== 'home'">{{ selectedPage.title }} </span>
         {{ selectedPage.description }}
       </h1>
-      <header-nav v-model="selectedPage" :options="pages" />
+      <nav>
+        <header-nav v-model="selectedPage" :options="pages" />
+        <dropdown />
+      </nav>
     </header>
     <keep-alive>
       <components :is="selectedPage.value" />
@@ -18,6 +21,7 @@
 import './styles/index.css'
 import { pages } from './defs'
 import headerNav from './components/header-nav'
+import dropdown from './components/dropdown.vue'
 import home from './pages/home.vue'
 
 export default {
@@ -25,6 +29,7 @@ export default {
 
   components: {
     headerNav,
+    dropdown,
     home,
     ex1: () => import('./pages/ex1.vue'),
     ex2: () => import('./pages/ex2.vue'),
@@ -33,7 +38,7 @@ export default {
 
   data: () => ({
     pages: pages,
-    selectedPage: pages[2]
+    selectedPage: pages[0]
   })
 }
 </script>

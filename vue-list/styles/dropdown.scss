@@ -1,0 +1,26 @@
+﻿.dropdown {
+  background: #088;
+  width: 128px;
+  padding: 0;
+
+  &-title {
+    color: #000;
+    background: $fc-secondary;
+    height: 32px;
+    line-height: 32px;
+    padding: 0 .5rem;
+    cursor: pointer;
+  }
+
+  &-item {
+    background: map.get($list-item, bg);
+    margin: 2px 0;
+    padding: .5rem .5rem;
+    cursor: pointer;
+
+    &:hover {
+      color: #000;
+      background: $bg-accent;
+    }
+  }
+}
