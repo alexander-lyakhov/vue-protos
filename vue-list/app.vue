@@ -7,7 +7,6 @@
       </h1>
       <nav class="nav">
         <header-nav v-model="selectedPage" :options="pages" />
-        <dropdown class="nav-themes" :options="theme" />
       </nav>
     </header>
     <keep-alive>
