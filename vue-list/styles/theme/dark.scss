@@ -1,5 +1,6 @@
 ﻿$fc-primary: #e0e0e0;
 $fc-secondary: #c0c0c0;
+$fc-middle: #808080;
 
 $fc-accent: #f0c000;
 $bg-accent: #ea0;
@@ -21,7 +22,7 @@ $theme: (
 
     title: (
       fc: #000,
-      bg: #e0e0e0
+      bg: $fc-primary,
     ),
 
     nav: (
@@ -29,7 +30,7 @@ $theme: (
 
       selected: (
         fc: $fc-accent
-      )
+      ),
     ),
 
     item: (
@@ -38,7 +39,7 @@ $theme: (
 
       hover: (
         fc: #000,
-        bg: $bg-accent
+        bg: $bg-accent,
       ),
 
       primary: (
@@ -59,6 +60,3 @@ $theme: (
     ),
   )
 );
-
-$header: map.get($theme, header);
-$list: map.get($theme, list);

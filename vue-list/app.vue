@@ -37,7 +37,7 @@ export default {
 
   data: () => ({
     pages: pages,
-    selectedPageIndex: 3,
+    selectedPageIndex: 0,
   }),
 
   computed: {
