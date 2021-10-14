@@ -6,11 +6,11 @@
       </template>
 
       <template #list-header>
-        <list-nav v-model="selectedListType" :options="listTypes" />
+        <list-nav v-model="selectedListTypeIndex" :options="listTypes" />
       </template>
 
       <template #default="{ item }">
-        <components :is="`list-item-${selectedListType.value}`" :item="item" />
+        <components :is="`list-item-${listTypes[selectedListTypeIndex].value}`" :item="item" />
       </template>
 
       <template #list-footer>
@@ -44,7 +44,7 @@ export default {
     return {
       movies: {},
       listTypes,
-      selectedListType: listTypes[0],
+      selectedListTypeIndex: 0,
       isLoading: false,
       pagingConfig: {
         offset: 0,
@@ -63,7 +63,7 @@ export default {
 
   computed: {
     listTitle() {
-      return `${this.selectedListType.title || listTypes[0].title}`
+      return `${this.listTypes[this.selectedListTypeIndex].title || listTypes[0].title}`
     },
 
     url() {

@@ -37,3 +37,9 @@ export const listTypes = [
   },
   */
 ];
+
+export const  theme = [
+  {title: 'FC6', value: 'fc6'},
+  {title: 'Dark', value: 'dark'},
+  {title: 'SD', value: 'sd'},
+]

@@ -3,8 +3,8 @@
 
   props: {
     value: {
-      type: Object,
-      default: () => ({})
+      type: Number,
+      default: 0
     },
 
     options: {
@@ -23,22 +23,30 @@
   }),
 
   created() {
-    this.checkValue();
+    let index = this.value
+    let selectedIndex = this.options.findIndex(el => el?.value === this.options[index]?.value) || 0
+
+    if (!this.options[selectedIndex]) {
+      selectedIndex = 0
+    }
+
+    this.toggleSelect(selectedIndex)
   },
 
   methods: {
-    checkValue() {
-      const index = this.options.findIndex(el => el?.value === this.value?.value) || 0
-      this.toggleSelect(index)
-    },
-
     toggleSelect(selectedIndex) {
       this.selectedIndex = selectedIndex;
-      this.$emit('input', this.options[selectedIndex])
+      this.$emit('change', this.selectedIndex)
     },
   },
 
   render() {
+    console.log({
+      selectedIndex: this.selectedIndex,
+      options: this.options,
+      toggleSelect: this.toggleSelect
+    })
+
     return this.$scopedSlots.default({
       selectedIndex: this.selectedIndex,
       options: this.options,

@@ -27,5 +27,10 @@ export default {
   components: {
     selector
   },
+
+  model: {
+    prop: 'value',
+    event: 'change'
+  }
 }
 </script>

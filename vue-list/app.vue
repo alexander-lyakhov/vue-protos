@@ -6,7 +6,7 @@
         {{ selectedPage.description }}
       </h1>
       <nav class="nav">
-        <header-nav v-model="selectedPage" :options="pages" />
+        <header-nav v-model="selectedPageIndex" :options="pages" />
       </nav>
     </header>
     <keep-alive>
@@ -37,12 +37,13 @@ export default {
 
   data: () => ({
     pages: pages,
-    selectedPage: pages[0],
-    theme: [
-      {title: 'FC6', val: 'fc6'},
-      {title: 'Dark', val: 'dark'},
-      {title: 'SD', val: 'sd'},
-    ]
-  })
+    selectedPageIndex: 3,
+  }),
+
+  computed: {
+    selectedPage() {
+      return this.pages[this.selectedPageIndex] || this.pages[0]
+    }
+  }
 }
 </script>
