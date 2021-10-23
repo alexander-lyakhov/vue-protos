@@ -6,7 +6,7 @@
           <div class="list-title">Simple list</div>
         </template>
 
-        <template #default="{ item }">
+        <template #list-body="{ item }">
           <list-item-simple :item="item" />
         </template>
 
@@ -22,7 +22,7 @@
           <div class="list-title">Detailed list</div>
         </template>
 
-        <template #default="{ item }">
+        <template #list-body="{ item }">
           <list-item-detailed :item="item" />
         </template>
 

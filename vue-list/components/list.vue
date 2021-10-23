@@ -6,7 +6,7 @@
 
     <ul class="list-body">
       <template v-for="item in props.items">
-        <slot v-bind:item="item" />
+        <slot name="list-body" v-bind:item="item" />
       </template>
     </ul>
 

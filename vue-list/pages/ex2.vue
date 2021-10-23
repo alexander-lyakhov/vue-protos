@@ -9,7 +9,7 @@
         <list-nav v-model="selectedListTypeIndex" :options="listTypes" />
       </template>
 
-      <template #default="{ item }">
+      <template #list-body="{ item }">
         <components :is="`list-item-${listTypes[selectedListTypeIndex].value}`" :item="item" />
       </template>
 
