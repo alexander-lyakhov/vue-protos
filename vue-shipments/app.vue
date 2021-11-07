@@ -33,12 +33,13 @@ export default {
 
   data() {
     return {
-      selectedIndex: 0,
+      selectedIndex: -1,
       items: [
-        {id: 1, title: 'stadnard'},
-        {id: 2, title: 'courier collection'},
-        {id: 3, title: 'parcel drop off'}
-      ]
+        {value: 1, title: 'stadnard'},
+        {value: 2, title: 'courier collection'},
+        {value: 3, title: 'parcel drop off'},
+        {value: 4, title: 'parcel drop off'}
+      ],
     }
   },
 

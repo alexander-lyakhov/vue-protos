@@ -4,7 +4,7 @@
   props: {
     value: {
       type: Number,
-      default: 0
+      default: -1
     },
 
     options: {
@@ -18,17 +18,9 @@
     event: 'change'
   },
 
-  data: () => ({
-    selectedIndex: 0
-  }),
-
   created() {
     let index = this.value
-    let selectedIndex = this.options.findIndex(el => el?.value === this.options[index]?.value) || 0
-
-    if (!this.options[selectedIndex]) {
-      selectedIndex = 0
-    }
+    let selectedIndex = this.options.findIndex(el => el?.value === this.options[index]?.value)
 
     this.toggleSelect(selectedIndex)
   },
