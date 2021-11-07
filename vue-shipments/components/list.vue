@@ -5,8 +5,8 @@
     <slot name="list-header" />
 
     <ul class="list-body">
-      <template v-for="item in props.items">
-        <slot name="list-body" v-bind:item="item" />
+      <template v-for="(item, index) in props.items">
+        <slot name="list-body" v-bind:item="{...item, index}" />
       </template>
     </ul>
 
@@ -16,8 +16,14 @@
 
 <script>
 
+//import selector from './utils/selector.js'
+
 export default {
   name: 'list',
+
+  components: {
+    //selector
+  },
 
   props: {
     title: {

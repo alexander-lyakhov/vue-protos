@@ -1,7 +1,7 @@
 ﻿.list {
   color: map.get($list, fc);
   background: map.get($list, bg);
-  border: 1px solid #808080;
+  border: 1px solid map.get($list-title, bg);
   //flex: 512px 0 1;
   width: 100%;
   //margin: 0 .75rem 2rem;

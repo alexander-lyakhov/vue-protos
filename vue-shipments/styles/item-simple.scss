@@ -5,13 +5,24 @@
     margin: 0 0 2px;
   }
 
+  &.selected {
+    //color: map.get($list-item-hover, fc);
+    //background: map.get($list-item-hover, bg);
+    a {
+      border-left: 4px solid $fc-accent;
+      padding-left: 1rem;
+      transition: padding .2s;
+    }
+  }
+
   a {
     display: block;
     padding: 0.75rem .5rem;
 
     &:hover {
-      color: map.get($list-item-hover, fc);
-      background: map.get($list-item-hover, bg);
+      //color: map.get($list-item-hover, fc);
+      //background: map.get($list-item-hover, bg);
+      background: lighten(map.get($list-item, bg), 10);
     }
   }
 }

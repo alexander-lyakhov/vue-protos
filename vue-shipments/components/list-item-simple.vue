@@ -1,5 +1,10 @@
 ﻿<template functional>
-  <li class="list-item simple" :key="props.item.id">
+  <li
+    class="list-item simple"
+    :class="{'selected': props.selected}"
+    :key="props.item.id"
+    @click="listeners.click"
+  >
     <a href="#">{{ props.item.title }}</a>
   </li>
 </template>
@@ -13,6 +18,11 @@ export default {
     item: {
       type: Object,
       default: () => ({})
+    },
+
+    selected: {
+      type: Boolean,
+      default: false
     }
   }
 }
