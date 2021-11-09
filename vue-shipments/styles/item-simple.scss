@@ -11,13 +11,13 @@
     a {
       border-left: 4px solid $fc-accent;
       padding-left: 1rem;
-      transition: padding .2s;
     }
   }
 
   a {
     display: block;
     padding: 0.75rem .5rem;
+    transition: padding .2s;
 
     &:hover {
       //color: map.get($list-item-hover, fc);

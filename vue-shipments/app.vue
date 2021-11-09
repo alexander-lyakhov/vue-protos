@@ -1,7 +1,7 @@
 ﻿<template>
   <div class="page">
     <aside>
-      <selector v-model="selectedIndex" :options="items" v-slot="slotData">
+      <selector v-model="selectedIndex" v-slot="slotData">
         <list :items="items">
           <template #list-title>
             <div class="list-title">Delivery method</div>

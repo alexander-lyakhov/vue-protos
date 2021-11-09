@@ -6,11 +6,6 @@
       type: Number,
       default: -1
     },
-
-    options: {
-      type: Array,
-      default: () => ([])
-    }
   },
 
   model: {
@@ -19,10 +14,7 @@
   },
 
   created() {
-    let index = this.value
-    let selectedIndex = this.options.findIndex(el => el?.value === this.options[index]?.value)
-
-    this.toggleSelect(selectedIndex)
+    this.toggleSelect(this.value)
   },
 
   methods: {
