@@ -2,13 +2,13 @@
   <selector
     v-bind="$attrs"
     v-on="$listeners"
-    v-slot="slotData"
+    v-slot="{isSelected, toggleSelect}"
   >
     <ul class="steps noselect">
       <li
-        v-for="(item, index) in slotData.options" :key="index"
-        :class="{selected: index === slotData.selectedIndex}"
-        @click="slotData.toggleSelect(index)"
+        v-for="(item, index) in options" :key="index"
+        :class="{selected: isSelected(index)}"
+        @click="toggleSelect(index)"
       >
         {{ item.title}}
       </li>
@@ -24,6 +24,13 @@ export default {
 
   components: {
     selector
+  },
+
+  props: {
+    options: {
+      type: Array,
+      default: () => ([])
+    }
   },
 
   model: {

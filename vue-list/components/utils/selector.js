@@ -4,13 +4,8 @@
   props: {
     value: {
       type: Number,
-      default: 0
+      default: -1
     },
-
-    options: {
-      type: Array,
-      default: () => ([])
-    }
   },
 
   model: {
@@ -18,19 +13,14 @@
     event: 'change'
   },
 
-  data: () => ({
-    selectedIndex: 0
-  }),
+  data() {
+    return {
+      selectedIndex: -1
+    }
+  },
 
   created() {
-    let index = this.value
-    let selectedIndex = this.options.findIndex(el => el?.value === this.options[index]?.value) || 0
-
-    if (!this.options[selectedIndex]) {
-      selectedIndex = 0
-    }
-
-    this.toggleSelect(selectedIndex)
+    this.toggleSelect(this.value)
   },
 
   methods: {
@@ -38,19 +28,23 @@
       this.selectedIndex = selectedIndex;
       this.$emit('change', this.selectedIndex)
     },
+
+    isSelected(index = -1) {
+      return this.selectedIndex === index
+    }
   },
 
   render() {
     console.log({
       selectedIndex: this.selectedIndex,
-      options: this.options,
-      toggleSelect: this.toggleSelect
+      toggleSelect: this.toggleSelect,
+      isSelected: this.isSelected
     })
 
     return this.$scopedSlots.default({
       selectedIndex: this.selectedIndex,
-      options: this.options,
-      toggleSelect: this.toggleSelect
+      toggleSelect: this.toggleSelect,
+      isSelected: this.isSelected
     })
   }
 }
