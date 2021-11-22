@@ -7,7 +7,7 @@
     >
       <div ref="list-nav" class="list-nav__menu">
         <span
-          v-for="(item, index) in slotData.options" :key="index"
+          v-for="(item, index) in options" :key="index"
           :class="{selected: index === slotData.selectedIndex}"
           @click="slotData.toggleSelect(index)"
         >
@@ -26,6 +26,13 @@ export default {
 
   components: {
     selector
+  },
+
+  props: {
+    options: {
+      type: Array,
+      default: () => ({})
+    }
   },
 
   model: {
