@@ -4,10 +4,11 @@
 @import "header.scss";
 @import "dropdown.scss";
 @import "list.scss";
+@import "parcel.scss";
 @import "item-simple.scss";
 @import "item-detailed.scss";
 @import "item-card.scss";
-@import "spinner.scss";
+//@import "spinner.scss";
 
 * {
   box-sizing: border-box;
@@ -46,33 +47,27 @@ body {
 }
 
 .page {
+  background: #303030;
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  min-height: 100%;
+  padding: .5rem;
+}
+
+.shipments {
+  background: #484848;
+  border: 1px solid #686868;;
   width: 100%;
-  height: 100%;
-  //padding: 2rem 1rem;
-
-  &:not(.home) {
-    overflow-y: scroll;
-  }
+  margin-right: .5rem;
+  padding: 1rem;
 }
 
-main {
-  display: flex;
-  flex-wrap: wrap;
-  width: 640px;
-  justify-content: center;
-  align-items: flex-start;
-}
 
 aside {
-  background: #808080;
-  width: 256px;
-  height: 100%;
+  background: #484848;
+  border: 1px solid #686868;
+  width: 400px;
   margin: 0 0 0 auto;
   padding: .5rem;
-
 }
 
 .feature-list {

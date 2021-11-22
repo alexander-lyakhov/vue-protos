@@ -1,5 +1,8 @@
 ﻿<template>
   <div class="page">
+    <div class="shipments">
+      <parcel />
+    </div>
     <aside>
       <selector v-model="selectedIndex" v-slot="slotData">
         <list :items="items">
@@ -20,12 +23,14 @@
 import './styles/index.css'
 import list from './components/list.vue'
 import listItemSimple from './components/list-item-simple.vue'
+import parcel from './components/parcel.vue'
 import selector from './components/utils/selector.js'
 
 export default {
   name: 'app',
 
   components: {
+    parcel,
     list,
     listItemSimple,
     selector
