@@ -4,7 +4,7 @@
 @import "header.scss";
 @import "dropdown.scss";
 @import "list.scss";
-@import "parcel.scss";
+@import "parcel-01.scss";
 @import "item-simple.scss";
 @import "item-detailed.scss";
 @import "item-card.scss";
@@ -42,29 +42,33 @@ body {
   font: 16px verdana;
   color: map.get($body, fc);
   background: map.get($body, bg);
+  background: #455A64;
   height: 100%;
   //padding-top: 96px;
 }
 
 .page {
-  background: #303030;
+  //background: #78909C;
   display: flex;
+  max-width: 1280px;
   min-height: 100%;
+  margin: 0 auto;
   padding: .5rem;
 }
 
 .shipments {
-  background: #484848;
-  border: 1px solid #686868;;
+  //background: #546E7A;
+  //border: 1px solid #808080;
+  //margin-right: .5rem;
   width: 100%;
-  margin-right: .5rem;
   padding: 1rem;
 }
 
 
 aside {
-  background: #484848;
-  border: 1px solid #686868;
+  background: #455A64;
+  //border: 1px solid #808080;
+  display: none;
   width: 400px;
   margin: 0 0 0 auto;
   padding: .5rem;
